@@ -1,21 +1,22 @@
-import express from 'express'
-import cors from 'cors'
-import dotenv from 'dotenv'
+import express from "express";
+import cors from "cors";
 
-dotenv.config()
+import authRoutes from "./routes/authRoutes.js";
+import taskRoutes from "./routes/taskRoutes.js";
 
-const app = express()
+const app = express();
 
-// --- Routes ---
+app.use(cors());
+app.use(express.json());
 
-// --- Middleware ---
-app.use(cors())
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Task Manager API Running",
+  });
+});
 
-// --- Routes ----
-app.get('/', (req, res) => {
-    res.status(200).send('Welcome to TaskManager app')
-})
+app.use("/api/auth", authRoutes);
+app.use("/api/tasks", taskRoutes);
 
 export default app;
