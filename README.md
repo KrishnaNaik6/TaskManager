@@ -71,9 +71,11 @@ git clone https://github.com/KrishnaNaik6/TaskManager.git
 
 # Frontend Setup
 
+```
 cd client
 npm install
 npm run dev
+```
 
 Frontend runs on:
 
@@ -82,9 +84,11 @@ http://localhost:5173
 
 # Backend Setup
 
+```
 cd server
 npm install
 npm run dev
+```
 
 Backend runs on:
 
